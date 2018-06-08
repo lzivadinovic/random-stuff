@@ -1,0 +1,229 @@
+
+\documentclass[12pt,a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{float}
+
+
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{titling}
+\setlength{\droptitle}{-3cm}
+
+
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[procnames]{listings}
+\usepackage{color}
+
+\begin{document}
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE Univerzitet u Beogradu\\ Matematički fakultet}\\[1.5cm] % Name of your university/college
+\textsc{\Large Izveštaj o laboratorijskoj vežbi}\\[0.5cm] % Major heading such as course name
+%\textsc{\large Minor Heading}\\[0.5cm] % Minor heading such as course title
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Frank Hercov eksperiment}\\[0.4cm] % Title of your document
+\HRule \\[1.5cm]
+ 
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+\vspace{12cm}
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Autor:}\\
+Lazar Živadinović \\
+AF 160/2013 
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Datum:} \\
+18. april 2017.
+\end{flushright}
+\end{minipage}\\[2cm]
+
+% If you don't want a supervisor, uncomment the two lines below and remove the section above
+%\Large \emph{Author:}\\
+%John \textsc{Smith}\\[3cm] % Your name
+
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+
+%{\large \today}\\[2cm] % Date, change the \today to a set date if you want to be precise
+
+%----------------------------------------------------------------------------------------
+%	LOGO SECTION
+%----------------------------------------------------------------------------------------
+
+%\includegraphics{logo.png}\\[1cm] % Include a department/university logo - this will require the graphicx package
+ 
+%----------------------------------------------------------------------------------------
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+
+\renewcommand{\abstractname}{Rezime}
+\renewcommand{\tablename}{Tabela}
+\renewcommand{\figurename}{Slika}
+
+\section*{Teorijski uvod}
+
+Borov model atoma je "naslednik" Raderfordovog modela atoma, u kom negativno naelektrisane čestice, elektroni, kruže oko pozitivno naelektrisanog jezgra. Glavni problem kod Raderfordovog modela atoma je taj što nije mogao da objasni stabilnost atoma. Iz klasične elektrodinamike znamo da naelektrisane čestice, koje se kreću ubrzano, zrače i time gube energiju. Pošto je kružno kretanje ubrzano (u smislu da se menja vektor brzine) elektron koji se kreće po kružnim orbitama oko nekog jezgra bi vrlo brzo trebao da izgubi svu energiju zračenjem\footnote{Larmorova formula opisuje koliki je gubitak energije} i da padne na jezgro. 
+
+Ovaj problem je "rešio" Nils Bor\footnote{Niels Bhor; Ali je stvorio nove. Jer fizika nije ništa više od stvaranja matematičkih modela koji opisuju svet oko nas i njihovo testiranje.} uvođenjem novog modela atoma (Borovog modela atoma, jelte). Ovaj model je "unapređenje" Raderfordovog modela u smislu dodavanja postulata na Raderfordov model atoma, tj. da elektroni ne zrače ako se kreću po specifičnim orbitama već da se razmena energije vriši isključivo u diskretnim skokovima prilikom promene orbita elektrona (i ta energija je definisana Plankovom relacijom) i da su te orbite definisane na neki način (kvantovanjem $\vec{L}$). 
+
+Kao i svakom modelu, bio mu je potreban eksperimentalni dokaz. To su uradili Džejms Frank i Gustav Herc\footnote{James Franck i Gustav Hertz} u Frank-Hercovom eksperimentu za koji su dobili Nobelovu nagradu 1925 "za otkriće zakona koji opisuju sudare elektrona atomom". 
+
+Njihov eksperiment se sastojao od cevi sa nekoliko elektroda u kojoj se nalazila živina para\footnote{Živa zato što nema tendenciju da stvara molekularne veze.}. Grafički prikaz cevi se može videti na slici 1. U ovom eksperimentu, oni su emitovali elektrone sa elektrode $Uh$ termo-emisijom, napon $U3$ između katode i elektrode $A1$ služi za mono-energetizaciju elektrona (fensi reč za filter) nakon čega se elektroni ubrzavaju između elektroda $A1$ i $A2$, nakon toga napon $U2$ je slabo kočeći napon koji sprečava elektrone sa malim energijama da padnu na anodu. Ako imaju dovoljnu energiju, elektroni padaju na anodu i struja koja potiče od ovih elektrona se detektuje na ampermetru. Između elektroda $A1$ i $A2$ ubrzani elektroni se sudaraju sa atomima žive (ili nekog drugog elementa koji se koristi u eksperimentu) i samo ukoliko imaju tačno određenu energiju koja odgovara razlici energija između dva stanja vezanog elektrona u atomu, dolazi do pobuđivanja, tj do predaje energije emitovanog elektrona, elektronu koji je vezan za atom. Nakon sudara, elektron koji je udario atom neće imati dovoljno energije da stigne do anode što će se detektovati smanjenjem struje na anodi. Ukoliko je, na primer, energija potrebna za pobuđivanj atoma 4.9 ev (kao što je kod žive) elektroni koji imaju celobrojni umnožak te energije, elektron će moći toliko puta da pobudi atom, što će nam dati specifičan oblik grafika zavisnosti struje od napona $U1$.
+
+Cilj eksperimenta je potvrđivanje Borovog modela atoma kao i određivanje razlike energija između osnovnog i prvog pobuđenog stanja atoma neona. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{/home/lazar/Fak(s)/atomska/vezbe/F-Hz/slika1.png}
+\caption{Šematski prikaz cevi korišćene u Frank-Hercovom eksperimentu}
+\end{figure}
+
+\section*{Postavka eksperimenta i metod}
+
+U ovom eksperimentu, snimljene su zavisnosti struje od napona $U1$ za različite vrednosti napona $U3$, $Uh$ i $U2$ u cilju da se izračuna energija prelaza između osnovnog i prvog pobuđenog stanja elektrona u atomu neona. Za svako od merenja, očitavana je vrednost razlike napona  između susednih minimuma struje, na osnovu te razlike, moguće je izračunati srednju energiju potrebnu da se atom neona pobudi u prvo pobuđeno stanje, kao i srednja talasna dužina fotona koji nastaje prilikom prelaska elektrona sa pobuđeno na osnovno stanje prilikom spontane emisije.
+
+Energija elektrona je data sa:
+\begin{equation}
+E_e = e \Delta U
+\end{equation}
+
+Gde je e, naelektrisanje elektrona, a $\Delta U$ razlika napona između dva susedna minimuma na grafiku zavisnosti struje od napona.  Iz Plankove relacije za energiju fotona $E_f = h\nu$ i relacije $\lambda \nu = c$ dobijamo:
+
+\begin{equation}
+\lambda = \frac{hc}{e\Delta U}
+\end{equation}
+
+Apsolutna greška za talasnu dužinu se može izračunati koristeći:
+
+\begin{equation}
+\delta \lambda = \frac{\partial \lambda }{\partial U} \delta (\Delta U)
+\end{equation}
+
+jer neodređenost za talasnu dužinu zavisi samo od neodređenosti napona, sve ostalo su konstante. Neodređenost za napon je $0.1\ V$.
+
+Posle kraćeg računa, dobijamo:
+
+\begin{equation}
+\delta \lambda = \lambda \frac{\delta (\Delta U)}{\Delta U}
+\end{equation}
+
+gde je $\delta (\Delta U)$ neodređenost merenja napona između dva susedna minimuma.
+
+Pošto na grafiku postoji više minimuma, njih je potrebno usrednjiti i naći konačnu vrednost talasne dužine. Pošto svako merenje ima svoju neodređenost, moramo koristiti otežanu srednju vrednost. Tj
+
+\begin{equation}
+\lambda=\frac{\sum\limits_{i=1}^n \lambda_i \omega_i}{\sum\limits_{i=1}^n \omega_i} ; \hspace{1.5cm} \Delta \lambda = \frac{1}{\sqrt{\sum\limits_{i=1}^n \omega_i}} \hspace{1.5cm} \omega_i = \frac{1}{\Delta \lambda ^2}
+\end{equation}
+
+\section*{Izvor neslućenih radosti}
+
+Pošto je u eksperimentu primećeno da razmaci između minimuma nisu konstantni već je primećeno da postoje dve, manje više, konstantne razlike. Prva razlika iznosi $\approx16.9\ eV$ dok druga iznosi $\approx 18.5\ eV$. Ovo je posledica strukture atoma neona. Naime, prvo pobuđeno stanje je degenerisano na dva stanja i to su $3s$ i $3p$ stanje (videti sliku 2)
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{/home/lazar/Fak(s)/atomska/vezbe/F-Hz/FHNe1.png}
+\caption{Energetski nivoi u atomu neona}
+\end{figure}
+
+Prilikom sudara elektrona sa energijama dovoljnim da pobude atom na sranje $3p$ posle pobuđivanja atom može kaskadnim prelazima da se vrati u osnovno stanje time emitujući foton koji odgovara razlici energija između stanja $3p$ i $3s$.
+
+U koje će stanje atom biti pobuđen zavisi od energije elektrona kao i od verovatnoće pobuđivanja na određeno stanje. Zato su neki minimumi širi od drugih. 
+
+Zbog ovoga, odlučio sam da izračunam energije emitovanih fotona prilikom svih prelaza (iz $3p$ na $2s$, $3s$ na $2p$ kao i $3p$ i $3s$)
+
+
+\pagebreak
+
+
+\section*{Rezultati merenja}
+Na slici 3 je prikazana zavisnost struje od napona za navedene vrednosti napona $U3$ i $U2$
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{/home/lazar/Fak(s)/atomska/vezbe/F-Hz/slika3.png}
+\caption{Zavisnost struje od napona $U1$ za $Uh=5V$, $U2=5V$, $U3=5V$}
+\end{figure}
+
+U tabeli 1 su date merene vrednosti napona kao i njima odgovarajuće talasne dužine.
+\begin{table}[H]
+\centering
+
+\begin{tabular}{|c|c|c|}
+\hline
+$\Delta U$ & $\lambda\ \cdot 10^{-9}\ [m]$ & $\Delta \lambda\ \cdot 10^{-9}\ [m]$ \\
+\hline
+ 16.89 & 73.4 & 0.4 \\
+ 16.99 & 73.0 & 0.4 \\
+ 16.99 & 73.0 & 0.4 \\
+ 16.99 & 73.0 & 0.4 \\
+ 16.89 & 73.4 & 0.4 \\
+ 17.18 & 72.2 & 0.4 \\
+ 17.12 & 72.4 & 0.4 \\
+\hline
+
+ 18.52 & 67.0 & 0.4 \\
+ 18.62 & 66.6 & 0.4 \\
+ 18.43 & 67.3 & 0.4 \\
+ 18.81 & 65.9 & 0.3 \\
+ 18.53 & 66.9 & 0.4 \\
+\hline
+\end{tabular}
+
+\caption{\label{tab:widgets}Raylike napona i njima odgovarajuće talasne dužine}
+\end{table}
+
+Konačane vrednosti za talasne dužine za prelaz $3s\ \rightarrow\ 2p$ je:
+
+\begin{equation}
+\lambda = \left( 72.9 \pm 0.2\right) \cdot 10^{-9}\ [m]
+\end{equation}
+
+
+
+Dok za prelaz $3p\ \rightarrow\ 2p$
+
+
+\begin{equation}
+\lambda = \left( 66.7 \pm 0.2\right) \cdot 10^{-9}\ [m]
+\end{equation}
+
+Na osnovu toga, energetska razlika između $3p$ i $3s$ nivoa odgovara fotonu talasne dužine:
+
+\begin{equation}
+\lambda = \left( 790 \pm 50\right) \cdot 10^{-9}\ [m]
+\end{equation}
+
+
+\end{document}
