@@ -54,23 +54,32 @@ int main(int argc, char **argv)
 {
   char path[200], input_fname[200], basename[200];
   int type, snapshot_number, files;
+  char *output;
+  printf("For now only supports single file binary!\n");
 
+  if(argc == 2)
+    {
+      printf("Output file will be created with appended .out\n");
+      char *sufix = ".out";
+      output = malloc(strlen(argv[1])+strlen(sufix)+1);
+      strcpy(output, argv[1]);
+      strcat(output, sufix);
+    }
+  else if(argc == 3)
+    {
+      output = argv[2];
+    }
+  else
+  {
+      printf("Usage: bin2ascii input_file [output file]\n");
+      exit(1);
+  }
   
-//  sprintf(path, "/home/lazar/ggg_tmp/Gadget-2.0.7/Analysis");
-//  sprintf(basename, "snapshot");
-//  snapshot_number = 0;		/* number of snapshot */
-//  files = 1;			/* number of files per snapshot */
-//
-//  sprintf(input_fname, "%s/%s_%03d", path, basename, snapshot_number);
+  files = 1; 
+  load_snapshot(argv[1], files);
+
     
-  load_snapshot(argv[1], 1);
-
-
-// reordering();			/* call this routine only if your ID's are set properly */
-
-//  unit_conversion();		/* optional stuff */
-  
-  do_what_you_want(argv[1]);
+  write_ascii(output);
 }
 
 
@@ -79,27 +88,66 @@ int main(int argc, char **argv)
 
 /* here the particle data is at your disposal 
  */
-int do_what_you_want(char *input)
+int write_ascii(char *output)
 {
-    char *sufix = ".out";
-    char *output = malloc(strlen(input)+strlen(sufix)+1);
-    strcpy(output, input);
-    strcat(output, sufix);
+    
+    
     FILE *f = fopen(output, "w");
+    if(f == NULL)
+    {
+        printf("Can't open file '%s'\n", output);
+        exit(1);
+    }
+
+    printf("Printing header...\n");
+    
+    fprintf(f,"# npart = %d\t%d\t%d\t%d\t%d\t%d\n", 
+            header1.npart[0],
+            header1.npart[1],
+            header1.npart[2],
+            header1.npart[3],
+            header1.npart[4],
+            header1.npart[5]);
+
+    fprintf(f,"# mass = %f\t%f\t%f\t%f\t%f\t%f\n",
+            header1.mass[0],
+            header1.mass[1],
+            header1.mass[2],
+            header1.mass[3],
+            header1.mass[4],
+            header1.mass[5]);
+   
+    fprintf(f, "# time = %f\n", header1.time);
+    fprintf(f, "# redshift = %f\n", header1.redshift);
+    fprintf(f, "# flag_sfr = %d\n", header1.flag_sfr);
+    fprintf(f, "# flag_feedback = %d\n", header1.flag_feedback);
+    fprintf(f, "# npartToral = %d\t%d\t%d\t%d\t%d\t%d\n",
+            header1.npartTotal[0],
+            header1.npartTotal[1],
+            header1.npartTotal[2],
+            header1.npartTotal[3],
+            header1.npartTotal[4],
+            header1.npartTotal[5]);
+    fprintf(f, "# flag_cooling = %d\n", header1.flag_cooling);
+    fprintf(f, "# num_files = %d\n", header1.num_files);
+    fprintf(f, "# BoxSize = %f\n", header1.BoxSize);
+    fprintf(f, "# Omega0 = %f\n", header1.Omega0);
+    fprintf(f, "# OmegaLambda = %f\n", header1.OmegaLambda);
+    fprintf(f, "# HubbleParam = %f\n", header1.HubbleParam);
+
+    fprintf(f, "# Type\tMass(10^10M_sun)\tX(kPc)\tY(kPc)\tZ(kPc)\tVx(km/s)\tVy(km/s)\tVz(km/s)\tRho\tU\tTemp\tNe\n");
+
+    printf("Printing particle data...\n");
     for (int i = 1; i<=NumPart; i++)
     {
-        fprintf(f,"%d\t%f\t%f\t%f\t%f\t%f\t%f\t%f\n", P[i].Type, P[i].Mass, P[i].Pos[0], P[i].Pos[1], P[i].Pos[2], P[i].Vel[0], P[i].Vel[1], P[i].Vel[2]);
+        fprintf(f,"%d\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\n", 
+                P[i].Type, P[i].Mass, 
+                P[i].Pos[0], P[i].Pos[1], P[i].Pos[2], 
+                P[i].Vel[0], P[i].Vel[1], P[i].Vel[2],
+                P[i].Rho, P[i].U, P[i].Temp, P[i].Ne);
     }
+
     fclose(f);
-    /* Actually fix it to print stuff that you need
-    char *sufix1 = ".header";
-    char *o1 = malloc(strlen(input)+strlen(sufix1)+1);
-    strcpy(o1, input);
-    strcat(o1, sufix1);
-    FILE * f1 = fopen(o1, "wb");
-    fprintf(f1, "%f",header1.HubbleParam );
-    fclose(f1);
-    */
 }
 
 
