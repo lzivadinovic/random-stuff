@@ -202,7 +202,7 @@ def normalize_spectrum(star_spectrum, res=80000, model = "Splines", degree=2, nk
     
     star_continuum_model = ispec.fit_continuum(star_spectrum,\
             from_resolution=from_resolution, ignore=strong_lines,\
-            continuum_regions=continuum_regions, nknots=nknots, degree=degree,\ 
+            continuum_regions=continuum_regions, nknots=nknots, degree=degree,\
             median_wave_range=median_wave_range, max_wave_range=max_wave_range,\
             model=model, order=order, automatic_strong_line_detection=True,\
             strong_line_probability=0.5, use_errors_for_fitting=True)
@@ -539,7 +539,7 @@ def do_stuff(what_object='08505182+1156559'):
 #execute calculations
 
 if __name__ == '__main__':
-    num_cores = 0
+    num_cores = 4
     p = Pool(num_cores)
     p.map(do_stuff, obj_id[0:4])
 
