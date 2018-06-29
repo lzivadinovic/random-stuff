@@ -44,13 +44,13 @@ with open(fits_root+'izlaz') as f:
 #get rid of "\n" and append fits_root
 fits_names = [x.strip() for x in con]
 fits_path = [fits_root + s for s in fits_names]
-print(fits_path[0])
+#print(fits_path[0])
 
 
 #get all obj_id from fits header from root files
 obj_id = list(map(lambda fp: fits.open(fp)[0].header['object'], fits_path))
 #simple check to see if everything is ok
-print(obj_id[0])
+#print(obj_id[0])
 
 ################################################################################
 ####################### HELPER FUNCTIONS########################################
@@ -504,18 +504,18 @@ def do_stuff(what_object='08505182+1156559'):
     ispec.write_spectrum(my_random_star, 'normalized_spectra.fits')
     print('---------- Determine parameters using grid ---------')
     param, err, fit = param_using_grid(my_random_star, c_model, what_object, myres)
-   
-    np.savetxt('%s_params' %(what_object), np.array([param,err]))
     
-    #f = file.open('%s_params' %(what_object), 'w')
-    #f.write(str(param['teff']) + '\t' + param['logg'] + '\t'\
-    #        +str(param['MH']) + '\t' + param['alpha'] + '\t'\
-    #        +str(param['vmic']) + '\t' + param['vmac'] + '\t'\
-    #        +str(param['vsini']) + '\n' + err['teff'] + '\t'\
-    #        +str(param['logg']) + '\t' + err['MH'] + '\t'\
-    #        +str(param['alpha']) + '\t' + err['vmic'] + '\t'\
-    #        +str(param['vmac']) + '\t' + err['vsini'] + '\n')
-    #f.close()
+    #np.savetxt('%s_params' %(what_object), np.array([param,err]))
+    # Crazy shit, np.save is not working
+    f = open('%s_params' %(what_object), 'w')
+    f.write(str(param['teff']) + '\t' + str(param['logg']) + '\t'\
+            +str(param['MH']) + '\t' + str(param['alpha']) + '\t'\
+            +str(param['vmic']) + '\t' + str(param['vmac']) + '\t'\
+            +str(param['vsini']) + '\n' + str(err['teff']) + '\t'\
+            +str(param['logg']) + '\t' + str(err['MH']) + '\t'\
+            +str(param['alpha']) + '\t' + str(err['vmic']) + '\t'\
+            +str(param['vmac']) + '\t' + str(err['vsini']) + '\n')
+    f.close()
     
     print(param)
     print(err)
