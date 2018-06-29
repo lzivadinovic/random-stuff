@@ -220,7 +220,7 @@ def normalize_spectrum(star_spectrum, res=80000, model = "Splines", degree=2, nk
     return normalized_star_spectrum, star_continuum_model
 
 def param_using_grid(normalized_star_spectrum, star_continuum_model, object_id,\
-    resolution=80000, p0 = [5750.0, 4.5, 0, 0, 2, 0.6, 0], max_iter = 8):
+    resolution=80000, p0 = [5750.0, 4.5, 0, 0, 2, 0.6, 0], max_iter = 10):
     ''' Derive spectroscopic parameters using grid model 
     p0 are initial values list:
     teff, logg, MH, alpha, vsini, limb_darkening coef, vrad 
@@ -402,7 +402,7 @@ def abund_line_by_line(star_spectrum, param, star_continuum_model, object_id,cod
     #line_regions = ispec.read_line_regions(ispec_dir + "/input/regions/47000_VALD/{}_synth_good_for_params_all_extended.txt".format(code))
     
     # Select only the lines to get abundances from
-    # line_regions = line_regions[0:100]
+    #line_regions = line_regions[0:5]
     line_regions = ispec.adjust_linemasks(normalized_star_spectrum, line_regions, max_margin=0.5)
 
     output_dirname = "example_abundance_line_by_line_%s" % (code,)
@@ -456,7 +456,7 @@ def abund_line_by_line(star_spectrum, param, star_continuum_model, object_id,cod
         #Write every element abundance to separate file
         #We use tihs ugly stuff here because if model_spectrum fails
         #it raises exception and i dont currently know how to handle it
-        abd_file = open(output_dirname + "/abd/%s_%s_abundances.txt" %(object_id, element_name), "a")
+        abundances_file = open(output_dirname + "/abd/%s_%s_abundances.txt" %(object_id, element_name), "a")
         abundances_file.write("%f\t%f\n" %(derived_params['MH'], errors['MH']))
         abundances_file.close()
         
@@ -527,7 +527,7 @@ def do_stuff(what_object='08505182+1156559'):
     #plt.xlim([650,670])
     #plt.show()
     
-    a = abund_line_by_line(star_spectrum, param, c_model,what_object,"grid")
+    a = abund_line_by_line(my_random_star, param, c_model,what_object,"grid")
     
     #abd = abund_line_by_line(star_spectrum, params, code="grid")
     
