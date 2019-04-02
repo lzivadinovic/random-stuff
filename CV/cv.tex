@@ -15,7 +15,7 @@
 
 %\usepackage[colorinlistoftodos]{todonotes}
 \usepackage{float}
-
+\usepackage[bottom]{footmisc}
 % modern themes
 \moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
 \moderncvcolor{blue}                                % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
@@ -35,10 +35,11 @@
 % personal data
 \name{Lazar}{Živadinović}
 \title{Curriculum Vitae}                               % optional, remove / comment the line if not wanted
-\address{Myaddress}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
-\phone[mobile]{myphone}                   % optional, remove / comment the line if not wanted
-\email{mymail}                               % optional, remove / comment the line if not wanted
-\homepage{heregoesmywebpage}                         % optional, remove / comment the line if not wanted
+\address{Marka Oraškovića 52/2, 11000 Beograd, Serbia}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+\phone[mobile]{+381643769053}                   % optional, remove / comment the line if not wanted
+\email{mail@lzivadinovic.com}                               % optional, remove / comment the line if not wanted
+%\homepage{https://lzivadinovic.com}                         % optional, remove / comment the line if not wanted
+%\github{zzz}
 %\extrainfo{additional information}                 % optional, remove / comment the line if not wanted
 %\photo[70pt][0.4pt]{/home/lazar/Documents/CV/grafik1.png}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
 %\quote{Some quote}                                 % optional, remove / comment the line if not wanted
@@ -58,11 +59,11 @@
 \begin{document}
 %\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
 %-----       resume       ---------------------------------------------------------
-%\begin{minipage}{0.05\textwidth}
+\begin{minipage}{0.05\textwidth}
 
-%\includegraphics[scale=0.06]{/home/lazar/Documents/CV/cv_fotka.png}
+\includegraphics[scale=0.05]{/home/lazar/Documents/CV/cv_fotka.png}
 
-%\end{minipage}
+\end{minipage}
 ~
 \begin{minipage}{0.9\textwidth}
 \begin{flushright} \large
@@ -76,11 +77,13 @@
 % EDUCATION SECTION
 %--------------------------------------------------
 \section{Personal info}
-Date of birth: blabla \\
-Address: addr here\\
-Phone: phone\\
-E-mail: email\\
-Web address: lzivadinovic.com\\
+Date of birth: 20.12.1994. \\
+Github: lzivadinovic \\
+Drivers license: A1, B \\
+%Address: addr here\\
+%Phone: phone\\
+%E-mail: email\\
+%Web address: lzivadinovic.com\\
 \vspace{-5mm}
 \section{Education}
 
@@ -111,9 +114,11 @@ Web address: lzivadinovic.com\\
 	\cventry{May 2017. - present}{DevOps Engineer}{ITEkako D.O.O.}{Belgrade, Serbia}{}
 	{	
 	\begin{itemize}
-	\item{Work with CI/CD  tools}
-	\item{Work with configuration management tools}
-	\item{Server and network maintenance}
+		\item{Work with CI/CD tools}
+		\item{Work with configuration management tools}
+		\item{SRE}
+		\item{Server and network maintenance}
+		\item{Cloud providers}
 	\end{itemize}
 	}
 
@@ -138,6 +143,7 @@ Web address: lzivadinovic.com\\
 			\item{Monte Carlo Radiative Transfer simulation of sunset and detectability of cyanobacteria in exoplanets atmospheres}
 			\item{Analysis of magnetic field in sunspot based on Fe I line pair}
 			\item{DSLR photometry on Delta Scutti variable stars}
+			\item{Reduction pipeline for variable stars DSLR photometry}
 			\item{Maintenance of personal computation server}
 		\end{itemize}				
 	\end{itemize}			
@@ -197,8 +203,8 @@ Web address: lzivadinovic.com\\
 
 \section{Computer skills}
 
-	\cvitem{General purpose programming}{Python, IDL}
-	\cvitem{System administraton}{Linux, bash, LDAP, OpenVPN, Ansible, Webservers, RDB}
+	\cvitem{General purpose programming}{Python\footnote{Numpy, scipy, matplotlib, astropy, sunpy, flask}, IDL\footnote{Coyote, Solarsoft}}
+	\cvitem{System administraton}{Linux, BASH, LDAP, OpenVPN, Ansible, Nginx/Apache, Postgresql/MySQL}
 	\cvitem{Scientific Software}{IRAF/PyRaf, MaximDL, Origin/QtiPlot, SAODS9, \LaTeX}
 
 
@@ -208,6 +214,7 @@ Web address: lzivadinovic.com\\
 \item{Spectropolarimetric inversion}
 \item{Image reconstruction}
 \item{Instrumentation}
+\item{Automatisation - data reduction pipelines}
 \end{itemize}
 
 \section{Languages}
